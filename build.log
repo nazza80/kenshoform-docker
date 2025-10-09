@@ -1,0 +1,659 @@
+db uses an image, skipping
+cache uses an image, skipping
+nginx uses an image, skipping
+Building front
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 639B done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/nginx:alpine
+#2 DONE 0.2s
+
+#3 [internal] load metadata for docker.io/library/node:22-alpine
+#3 DONE 0.2s
+
+#4 [internal] load .dockerignore
+#4 transferring context: 2B done
+#4 DONE 0.0s
+
+#5 [stage-1 1/2] FROM docker.io/library/nginx:alpine@sha256:4e6b072d50b6c2b8caae37acc324ae58290bfaf3320ba2c4a4d4caa09bcd2916
+#5 CACHED
+
+#6 [build 1/7] FROM docker.io/library/node:22-alpine@sha256:605dc0b362bd1781359cf97eea543e082f28784408f85c37c19f612fcf46b83e
+#6 DONE 0.0s
+
+#7 [build 2/7] WORKDIR /app
+#7 CACHED
+
+#8 [internal] load build context
+#8 transferring context: 92.87MB 5.0s
+#8 ...
+
+#9 [build 3/7] RUN corepack enable && corepack prepare yarn@stable --activate
+#9 1.684 Preparing yarn@stable for immediate activation...
+#9 DONE 5.1s
+
+#8 [internal] load build context
+#8 transferring context: 100.44MB 10.0s
+#8 transferring context: 107.60MB 15.2s
+#8 transferring context: 130.84MB 20.2s
+#8 transferring context: 198.77MB 25.3s
+#8 transferring context: 312.43MB 30.4s
+#8 transferring context: 407.39MB 35.5s
+#8 transferring context: 410.50MB 37.0s done
+#8 DONE 38.9s
+
+#10 [build 4/7] COPY . .
+#10 DONE 54.3s
+
+#11 [build 5/7] RUN yarn install --frozen-lockfile
+#11 1.456 ! Corepack is about to download https://repo.yarnpkg.com/4.9.2/packages/yarnpkg-cli/bin/yarn.js
+#11 2.715 ➤ YN0050: The --frozen-lockfile option is deprecated; use --immutable and/or --immutable-cache instead
+#11 2.715 
+#11 3.113 ➤ YN0000: · Yarn 4.9.2
+#11 3.141 ➤ YN0000: ┌ Resolution step
+#11 3.910 ➤ YN0000: └ Completed in 0s 769ms
+#11 3.913 ➤ YN0000: ┌ Post-resolution validation
+#11 3.913 ➤ YN0060: │ @tanstack/react-query is listed by your project with version 5.71.5 (pb6b6a), which doesn't satisfy what @tanstack/react-query-devtools requests (^5.85.3).
+#11 3.914 ➤ YN0086: │ Some peer dependencies are incorrectly met by your project; run yarn explain peer-requirements <hash> for details, where <hash> is the six-letter p-prefixed code.
+#11 3.914 ➤ YN0086: │ Some peer dependencies are incorrectly met by dependencies; run yarn explain peer-requirements for details.
+#11 4.014 ➤ YN0000: └ Completed
+#11 4.015 ➤ YN0000: ┌ Fetch step
+#11 29.19 ➤ YN0013: │ 986 packages were added to the project (+ 365.2 MiB).
+#11 29.19 ➤ YN0000: └ Completed in 25s 172ms
+#11 29.35 ➤ YN0000: ┌ Link step
+#11 30.61 ➤ YN0008: │ esbuild@npm:0.25.2 must be rebuilt because its dependency tree changed
+#11 30.62 ➤ YN0008: │ unrs-resolver@npm:1.11.1 must be rebuilt because its dependency tree changed
+#11 31.16 ➤ YN0000: └ Completed in 1s 809ms
+#11 31.37 ➤ YN0000: · Done with warnings in 28s 259ms
+#11 DONE 32.7s
+
+#12 [build 6/7] RUN yarn build
+#12 3.367 vite v7.1.9 building for production...
+#12 7.402 [plugin vite-plugin-eslint] src/index.tsx: 
+#12 7.402 /app/src/index.tsx
+#12 7.402   54:9  warning  Include a description after the "@ts-ignore" directive to explain why the @ts-ignore is necessary. The description must be 10 characters or longer  @typescript-eslint/ban-ts-comment
+#12 7.402 
+#12 7.402 ✖ 1 problem (0 errors, 1 warning)
+#12 7.402 
+#12 7.405 transforming...
+#12 8.405 [plugin vite-plugin-eslint] src/components/Dashboard/RoutineCard.tsx: 
+#12 8.405 /app/src/components/Dashboard/RoutineCard.tsx
+#12 8.405   72:13  warning  't' is assigned a value but never used  @typescript-eslint/no-unused-vars
+#12 8.405 
+#12 8.405 ✖ 1 problem (0 errors, 1 warning)
+#12 8.405 
+#12 10.64 [plugin vite-plugin-eslint] src/components/Nutrition/components/BmiCalculator.tsx: 
+#12 10.64 /app/src/components/Nutrition/components/BmiCalculator.tsx
+#12 10.64   146:33  warning  Include a description after the "@ts-ignore" directive to explain why the @ts-ignore is necessary. The description must be 10 characters or longer  @typescript-eslint/ban-ts-comment
+#12 10.64 
+#12 10.64 ✖ 1 problem (0 errors, 1 warning)
+#12 10.64 
+#12 10.97 [plugin vite-plugin-eslint] src/components/Exercises/ExerciseOverview.tsx: 
+#12 10.97 /app/src/components/Exercises/ExerciseOverview.tsx
+#12 10.97   51:7   warning  'NoResultsBanner' is assigned a value but never used  @typescript-eslint/no-unused-vars
+#12 10.97   83:38  warning  Unexpected any. Specify a different type              @typescript-eslint/no-explicit-any
+#12 10.97 
+#12 10.97 ✖ 2 problems (0 errors, 2 warnings)
+#12 10.97 
+#12 11.36 [plugin vite-plugin-eslint] src/components/Nutrition/widgets/forms/PlanForm.tsx: 
+#12 11.36 /app/src/components/Nutrition/widgets/forms/PlanForm.tsx
+#12 11.36   28:15  warning  The `Function` type accepts any function-like value.
+#12 11.36 Prefer explicitly defining any function parameters and return type  @typescript-eslint/no-unsafe-function-type
+#12 11.36   35:55  warning  Optional chain expressions can return undefined by design - using a non-null assertion is unsafe and wrong               @typescript-eslint/no-non-null-asserted-optional-chain
+#12 11.36 
+#12 11.36 ✖ 2 problems (0 errors, 2 warnings)
+#12 11.36 
+#12 11.56 [plugin vite-plugin-eslint] src/utils/url.ts: 
+#12 11.56 /app/src/utils/url.ts
+#12 11.56   40:17  warning  Include a description after the "@ts-ignore" directive to explain why the @ts-ignore is necessary. The description must be 10 characters or longer  @typescript-eslint/ban-ts-comment
+#12 11.56 
+#12 11.56 ✖ 1 problem (0 errors, 1 warning)
+#12 11.56 
+#12 11.63 [plugin vite-plugin-eslint] src/components/Nutrition/widgets/forms/NutritionDiaryEntryForm.tsx: 
+#12 11.63 /app/src/components/Nutrition/widgets/forms/NutritionDiaryEntryForm.tsx
+#12 11.63   21:15  warning  The `Function` type accepts any function-like value.
+#12 11.63 Prefer explicitly defining any function parameters and return type  @typescript-eslint/no-unsafe-function-type
+#12 11.63 
+#12 11.63 ✖ 1 problem (0 errors, 1 warning)
+#12 11.63 
+#12 11.73 [plugin vite-plugin-eslint] src/components/Core/Modals/WgerModal.tsx: 
+#12 11.73 /app/src/components/Core/Modals/WgerModal.tsx
+#12 11.73    9:14  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+#12 11.73   10:15  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+#12 11.73 
+#12 11.73 ✖ 2 problems (0 errors, 2 warnings)
+#12 11.73 
+#12 11.82 [plugin vite-plugin-eslint] src/components/Nutrition/widgets/IngredientAutcompleter.tsx: 
+#12 11.82 /app/src/components/Nutrition/widgets/IngredientAutcompleter.tsx
+#12 11.82   25:15  warning  The `Function` type accepts any function-like value.
+#12 11.82 Prefer explicitly defining any function parameters and return type  @typescript-eslint/no-unsafe-function-type
+#12 11.82 
+#12 11.82 ✖ 1 problem (0 errors, 1 warning)
+#12 11.82 
+#12 14.94 [plugin vite-plugin-eslint] src/components/WorkoutRoutines/models/Day.ts: 
+#12 14.94 /app/src/components/WorkoutRoutines/models/Day.ts
+#12 14.94   16:14  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+#12 14.94   33:13  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+#12 14.94 
+#12 14.94 ✖ 2 problems (0 errors, 2 warnings)
+#12 14.94 
+#12 14.98 [plugin vite-plugin-eslint] src/components/BodyWeight/TableDashboard/TableDashboard.tsx: 
+#12 14.98 /app/src/components/BodyWeight/TableDashboard/TableDashboard.tsx
+#12 14.98   17:16  warning  'Theme' is defined but never used  @typescript-eslint/no-unused-vars
+#12 14.98 
+#12 14.98 ✖ 1 problem (0 errors, 1 warning)
+#12 14.98 
+#12 15.02 [plugin vite-plugin-eslint] src/components/BodyWeight/Form/WeightForm.tsx: 
+#12 15.02 /app/src/components/BodyWeight/Form/WeightForm.tsx
+#12 15.02   16:15  warning  The `Function` type accepts any function-like value.
+#12 15.02 Prefer explicitly defining any function parameters and return type  @typescript-eslint/no-unsafe-function-type
+#12 15.02 
+#12 15.02 ✖ 1 problem (0 errors, 1 warning)
+#12 15.02 
+#12 15.05 [plugin vite-plugin-eslint] src/components/BodyWeight/WeightChart/index.tsx: 
+#12 15.05 /app/src/components/BodyWeight/WeightChart/index.tsx
+#12 15.05   17:15  warning  Unexpected any. Specify a different type   @typescript-eslint/no-explicit-any
+#12 15.05   22:15  warning  'i18n' is assigned a value but never used  @typescript-eslint/no-unused-vars
+#12 15.05   42:15  warning  'i18n' is assigned a value but never used  @typescript-eslint/no-unused-vars
+#12 15.05   59:45  warning  Unexpected any. Specify a different type   @typescript-eslint/no-explicit-any
+#12 15.05 
+#12 15.05 ✖ 4 problems (0 errors, 4 warnings)
+#12 15.05 
+#12 20.24 [plugin vite-plugin-eslint] src/components/Carousel/index.tsx: 
+#12 20.24 /app/src/components/Carousel/index.tsx
+#12 20.24   44:55  warning  'index' is defined but never used  @typescript-eslint/no-unused-vars
+#12 20.24 
+#12 20.24 ✖ 1 problem (0 errors, 1 warning)
+#12 20.24 
+#12 20.42 [plugin vite-plugin-eslint] src/components/Nutrition/widgets/charts/MacrosPieChart.tsx: 
+#12 20.42 /app/src/components/Nutrition/widgets/charts/MacrosPieChart.tsx
+#12 20.42   26:39  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+#12 20.42 
+#12 20.42 ✖ 1 problem (0 errors, 1 warning)
+#12 20.42 
+#12 20.45 [plugin vite-plugin-eslint] src/components/Nutrition/widgets/DiaryOverview.tsx: 
+#12 20.45 /app/src/components/Nutrition/widgets/DiaryOverview.tsx
+#12 20.45   40:55  warning  Optional chain expressions can return undefined by design - using a non-null assertion is unsafe and wrong  @typescript-eslint/no-non-null-asserted-optional-chain
+#12 20.45   44:43  warning  Optional chain expressions can return undefined by design - using a non-null assertion is unsafe and wrong  @typescript-eslint/no-non-null-asserted-optional-chain
+#12 20.45 
+#12 20.45 ✖ 2 problems (0 errors, 2 warnings)
+#12 20.45 
+#12 20.52 [plugin vite-plugin-eslint] src/components/Nutrition/widgets/forms/MealForm.tsx: 
+#12 20.52 /app/src/components/Nutrition/widgets/forms/MealForm.tsx
+#12 20.52   15:15  warning  The `Function` type accepts any function-like value.
+#12 20.52 Prefer explicitly defining any function parameters and return type  @typescript-eslint/no-unsafe-function-type
+#12 20.52 
+#12 20.52 ✖ 1 problem (0 errors, 1 warning)
+#12 20.52 
+#12 21.21 [plugin vite-plugin-eslint] src/components/Exercises/Detail/ExerciseDetails.tsx: 
+#12 21.21 /app/src/components/Exercises/Detail/ExerciseDetails.tsx
+#12 21.21   59:8  warning  React Hook React.useEffect has a missing dependency: 'i18n.language'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+#12 21.21 
+#12 21.21 ✖ 1 problem (0 errors, 1 warning)
+#12 21.21 
+#12 21.35 [plugin vite-plugin-eslint] src/components/WorkoutRoutines/widgets/LogWidgets.tsx: 
+#12 21.35 /app/src/components/WorkoutRoutines/widgets/LogWidgets.tsx
+#12 21.35   151:37  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+#12 21.35   152:37  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+#12 21.35 
+#12 21.35 ✖ 2 problems (0 errors, 2 warnings)
+#12 21.35 
+#12 21.45 [plugin vite-plugin-eslint] src/components/Core/Widgets/RenderLoadingQuery.tsx: 
+#12 21.45 /app/src/components/Core/Widgets/RenderLoadingQuery.tsx
+#12 21.45   20:14  warning  Include a description after the "@ts-ignore" directive to explain why the @ts-ignore is necessary. The description must be 10 characters or longer  @typescript-eslint/ban-ts-comment
+#12 21.45 
+#12 21.45 ✖ 1 problem (0 errors, 1 warning)
+#12 21.45 
+#12 22.67 [plugin vite-plugin-eslint] src/components/Exercises/Filter/CategoryFilter.tsx: 
+#12 22.67 /app/src/components/Exercises/Filter/CategoryFilter.tsx
+#12 22.67   26:12  warning  't' is assigned a value but never used  @typescript-eslint/no-unused-vars
+#12 22.67 
+#12 22.67 ✖ 1 problem (0 errors, 1 warning)
+#12 22.67 
+#12 22.73 [plugin vite-plugin-eslint] src/components/Exercises/Filter/EquipmentFilter.tsx: 
+#12 22.73 /app/src/components/Exercises/Filter/EquipmentFilter.tsx
+#12 22.73   26:12  warning  't' is assigned a value but never used  @typescript-eslint/no-unused-vars
+#12 22.73 
+#12 22.73 ✖ 1 problem (0 errors, 1 warning)
+#12 22.73 
+#12 22.77 [plugin vite-plugin-eslint] src/components/Exercises/Filter/NameAutcompleter.tsx: 
+#12 22.77 /app/src/components/Exercises/Filter/NameAutcompleter.tsx
+#12 22.77   73:41  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+#12 22.77 
+#12 22.77 ✖ 1 problem (0 errors, 1 warning)
+#12 22.77 
+#12 22.79 [plugin vite-plugin-eslint] src/components/Exercises/Filter/MuscleFilter.tsx: 
+#12 22.79 /app/src/components/Exercises/Filter/MuscleFilter.tsx
+#12 22.79   30:12  warning  't' is assigned a value but never used  @typescript-eslint/no-unused-vars
+#12 22.79 
+#12 22.79 ✖ 1 problem (0 errors, 1 warning)
+#12 22.79 
+#12 23.67 [plugin vite-plugin-eslint] src/components/WorkoutRoutines/widgets/forms/SessionForm.tsx: 
+#12 23.67 /app/src/components/WorkoutRoutines/widgets/forms/SessionForm.tsx
+#12 23.67   32:29  warning  Unexpected any. Specify a different type                                                                    @typescript-eslint/no-explicit-any
+#12 23.67   38:50  warning  Optional chain expressions can return undefined by design - using a non-null assertion is unsafe and wrong  @typescript-eslint/no-non-null-asserted-optional-chain
+#12 23.67   92:8   warning  React Hook useEffect has a missing dependency: 'formik'. Either include it or remove the dependency array   react-hooks/exhaustive-deps
+#12 23.67 
+#12 23.67 ✖ 3 problems (0 errors, 3 warnings)
+#12 23.67 
+#12 23.81 [plugin vite-plugin-eslint] src/components/Measurements/queries/index.ts: 
+#12 23.81 /app/src/components/Measurements/queries/index.ts
+#12 23.81   85:26  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+#12 23.81 
+#12 23.81 ✖ 1 problem (0 errors, 1 warning)
+#12 23.81 
+#12 23.85 [plugin vite-plugin-eslint] src/components/Measurements/widgets/EntryForm.tsx: 
+#12 23.85 /app/src/components/Measurements/widgets/EntryForm.tsx
+#12 23.85   23:15  warning  The `Function` type accepts any function-like value.
+#12 23.85 Prefer explicitly defining any function parameters and return type  @typescript-eslint/no-unsafe-function-type
+#12 23.85 
+#12 23.85 ✖ 1 problem (0 errors, 1 warning)
+#12 23.85 
+#12 23.87 [plugin vite-plugin-eslint] src/components/Measurements/widgets/CategoryDetailDataGrid.tsx: 
+#12 23.87 /app/src/components/Measurements/widgets/CategoryDetailDataGrid.tsx
+#12 23.87    99:45  warning  Unexpected any. Specify a different type                                                                                                            @typescript-eslint/no-explicit-any
+#12 23.87   108:5   warning  Include a description after the "@ts-ignore" directive to explain why the @ts-ignore is necessary. The description must be 10 characters or longer  @typescript-eslint/ban-ts-comment
+#12 23.87 
+#12 23.87 ✖ 2 problems (0 errors, 2 warnings)
+#12 23.87 
+#12 24.39 [plugin vite-plugin-eslint] src/components/WorkoutRoutines/widgets/forms/ProgressionForm.tsx: 
+#12 24.39 /app/src/components/WorkoutRoutines/widgets/forms/ProgressionForm.tsx
+#12 24.39   37:12  warning  'linkMinMax' is assigned a value but never used     @typescript-eslint/no-unused-vars
+#12 24.39   37:24  warning  'setLinkMinMax' is assigned a value but never used  @typescript-eslint/no-unused-vars
+#12 24.39 
+#12 24.39 ✖ 2 problems (0 errors, 2 warnings)
+#12 24.39 
+#12 24.40 [plugin vite-plugin-eslint] src/components/Exercises/models/language.ts: 
+#12 24.40 /app/src/components/Exercises/models/language.ts
+#12 24.40   15:20  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+#12 24.40   23:12  warning  'item' is defined but never used          @typescript-eslint/no-unused-vars
+#12 24.40 
+#12 24.40 ✖ 2 problems (0 errors, 2 warnings)
+#12 24.40 
+#12 24.52 [plugin vite-plugin-eslint] src/components/WorkoutRoutines/widgets/forms/SlotEntryForm.tsx: 
+#12 24.52 /app/src/components/WorkoutRoutines/widgets/forms/SlotEntryForm.tsx
+#12 24.52   156:35  warning  Unexpected any. Specify a different type                                                                    @typescript-eslint/no-explicit-any
+#12 24.52   158:22  warning  Unexpected any. Specify a different type                                                                    @typescript-eslint/no-explicit-any
+#12 24.52   182:27  warning  React Hook useCallback received a function whose dependencies are unknown. Pass an inline function instead  react-hooks/exhaustive-deps
+#12 24.52 
+#12 24.52 ✖ 3 problems (0 errors, 3 warnings)
+#12 24.52 
+#12 24.77 [plugin vite-plugin-eslint] src/components/WorkoutRoutines/widgets/forms/RoutineForm.tsx: 
+#12 24.77 /app/src/components/WorkoutRoutines/widgets/forms/RoutineForm.tsx
+#12 24.77   31:15  warning  The `Function` type accepts any function-like value.
+#12 24.77 Prefer explicitly defining any function parameters and return type  @typescript-eslint/no-unsafe-function-type
+#12 24.77 
+#12 24.77 ✖ 1 problem (0 errors, 1 warning)
+#12 24.77 
+#12 31.52 [plugin vite-plugin-eslint] src/components/WorkoutRoutines/queries/logs.ts: 
+#12 31.52 /app/src/components/WorkoutRoutines/queries/logs.ts
+#12 31.52   42:31  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+#12 31.52 
+#12 31.52 ✖ 1 problem (0 errors, 1 warning)
+#12 31.52 
+#12 32.59 [plugin vite-plugin-eslint] src/components/WorkoutRoutines/queries/sessions.ts: 
+#12 32.59 /app/src/components/WorkoutRoutines/queries/sessions.ts
+#12 32.59   8:84  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+#12 32.59 
+#12 32.59 ✖ 1 problem (0 errors, 1 warning)
+#12 32.59 
+#12 38.36 [plugin vite-plugin-eslint] src/components/Core/Modals/DeleteConfirmationModal.tsx: 
+#12 38.36 /app/src/components/Core/Modals/DeleteConfirmationModal.tsx
+#12 38.36   11:14  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+#12 38.36   12:15  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+#12 38.36 
+#12 38.36 ✖ 2 problems (0 errors, 2 warnings)
+#12 38.36 
+#12 38.40 [plugin vite-plugin-eslint] src/components/BodyWeight/Table/index.tsx: 
+#12 38.40 /app/src/components/BodyWeight/Table/index.tsx
+#12 38.40   20:16  warning  'Theme' is defined but never used  @typescript-eslint/no-unused-vars
+#12 38.40 
+#12 38.40 ✖ 1 problem (0 errors, 1 warning)
+#12 38.40 
+#12 38.77 [plugin vite-plugin-eslint] src/components/Exercises/Detail/ExerciseDetailView.tsx: 
+#12 38.77 /app/src/components/Exercises/Detail/ExerciseDetailView.tsx
+#12 38.77   96:56  warning  Optional chain expressions can return undefined by design - using a non-null assertion is unsafe and wrong  @typescript-eslint/no-non-null-asserted-optional-chain
+#12 38.77 
+#12 38.77 ✖ 1 problem (0 errors, 1 warning)
+#12 38.77 
+#12 38.84 [plugin vite-plugin-eslint] src/components/Exercises/Detail/ExerciseDetailEdit.tsx: 
+#12 38.84 /app/src/components/Exercises/Detail/ExerciseDetailEdit.tsx
+#12 38.84   67:8  warning  React Hook useEffect has missing dependencies: 'exercise.muscles' and 'exercise.musclesSecondary'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
+#12 38.84 
+#12 38.84 ✖ 1 problem (0 errors, 1 warning)
+#12 38.84 
+#12 38.89 [plugin vite-plugin-eslint] src/components/Core/Widgets/FormError.tsx: 
+#12 38.89 /app/src/components/Core/Widgets/FormError.tsx
+#12 38.89   10:11  warning  'handleCloseAlert' is assigned a value but never used     @typescript-eslint/no-unused-vars
+#12 38.89   28:80  warning  Unexpected any. Specify a different type                  @typescript-eslint/no-explicit-any
+#12 38.89   46:11  warning  'handleCloseSnackbar' is assigned a value but never used  @typescript-eslint/no-unused-vars
+#12 38.89   59:76  warning  Unexpected any. Specify a different type                  @typescript-eslint/no-explicit-any
+#12 38.89 
+#12 38.89 ✖ 4 problems (0 errors, 4 warnings)
+#12 38.89 
+#12 38.92 [plugin vite-plugin-eslint] src/components/WorkoutRoutines/models/BaseConfig.ts: 
+#12 38.92 /app/src/components/WorkoutRoutines/models/BaseConfig.ts
+#12 38.92   97:23  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+#12 38.92 
+#12 38.92 ✖ 1 problem (0 errors, 1 warning)
+#12 38.92 
+#12 39.90 [plugin vite-plugin-eslint] src/components/Exercises/Detail/Head/index.tsx: 
+#12 39.90 /app/src/components/Exercises/Detail/Head/index.tsx
+#12 39.90   33:18  warning  The `Function` type accepts any function-like value.
+#12 39.90 Prefer explicitly defining any function parameters and return type  @typescript-eslint/no-unsafe-function-type
+#12 39.90 
+#12 39.90 ✖ 1 problem (0 errors, 1 warning)
+#12 39.90 
+#12 40.46 [plugin vite-plugin-eslint] src/services/session.ts: 
+#12 40.46 /app/src/services/session.ts
+#12 40.46   21:65  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+#12 40.46 
+#12 40.46 ✖ 1 problem (0 errors, 1 warning)
+#12 40.46 
+#12 40.48 [plugin vite-plugin-eslint] src/services/profile.ts: 
+#12 40.48 /app/src/services/profile.ts
+#12 40.48   23:14  warning  'error' is defined but never used  @typescript-eslint/no-unused-vars
+#12 40.48 
+#12 40.48 ✖ 1 problem (0 errors, 1 warning)
+#12 40.48 
+#12 40.95 [plugin vite-plugin-eslint] src/components/WorkoutRoutines/widgets/SlotDetails.tsx: 
+#12 40.95 /app/src/components/WorkoutRoutines/widgets/SlotDetails.tsx
+#12 40.95   39:7  warning  'configTypes' is assigned a value but only used as a type  @typescript-eslint/no-unused-vars
+#12 40.95 
+#12 40.95 ✖ 1 problem (0 errors, 1 warning)
+#12 40.95 
+#12 41.02 [plugin vite-plugin-eslint] src/components/WorkoutRoutines/models/WorkoutSession.ts: 
+#12 41.02 /app/src/components/WorkoutRoutines/models/WorkoutSession.ts
+#12 41.02   97:23  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+#12 41.02 
+#12 41.02 ✖ 1 problem (0 errors, 1 warning)
+#12 41.02 
+#12 41.04 [plugin vite-plugin-eslint] src/components/Measurements/widgets/CategoryForm.tsx: 
+#12 41.04 /app/src/components/Measurements/widgets/CategoryForm.tsx
+#12 41.04   11:15  warning  The `Function` type accepts any function-like value.
+#12 41.04 Prefer explicitly defining any function parameters and return type  @typescript-eslint/no-unsafe-function-type
+#12 41.04   18:66  warning  Optional chain expressions can return undefined by design - using a non-null assertion is unsafe and wrong               @typescript-eslint/no-non-null-asserted-optional-chain
+#12 41.04 
+#12 41.04 ✖ 2 problems (0 errors, 2 warnings)
+#12 41.04 
+#12 41.52 [plugin vite-plugin-eslint] src/services/exercise.ts: 
+#12 41.52 /app/src/services/exercise.ts
+#12 41.52   13:46  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+#12 41.52   33:51  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+#12 41.52   47:51  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+#12 41.52   64:51  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+#12 41.52 
+#12 41.52 ✖ 4 problems (0 errors, 4 warnings)
+#12 41.52 
+#12 41.55 [plugin vite-plugin-eslint] src/services/exerciseTranslation.ts: 
+#12 41.55 /app/src/services/exerciseTranslation.ts
+#12 41.55   17:51  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+#12 41.55 
+#12 41.55 ✖ 1 problem (0 errors, 1 warning)
+#12 41.55 
+#12 41.58 [plugin vite-plugin-eslint] src/services/workoutLogs.ts: 
+#12 41.58 /app/src/services/workoutLogs.ts
+#12 41.58   29:40  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+#12 41.58 
+#12 41.58 ✖ 1 problem (0 errors, 1 warning)
+#12 41.58 
+#12 41.71 [plugin vite-plugin-eslint] src/components/WorkoutRoutines/widgets/forms/BaseConfigForm.tsx: 
+#12 41.71 /app/src/components/WorkoutRoutines/widgets/forms/BaseConfigForm.tsx
+#12 41.71   55:42  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+#12 41.71 
+#12 41.71 ✖ 1 problem (0 errors, 1 warning)
+#12 41.71 
+#12 41.88 [plugin vite-plugin-eslint] src/components/Calendar/Components/CalendarComponent.tsx: 
+#12 41.88 /app/src/components/Calendar/Components/CalendarComponent.tsx
+#12 41.88   127:9  warning  React Hook useMemo has a missing dependency: 'getDaysInMonth'. Either include it or remove the dependency array              react-hooks/exhaustive-deps
+#12 41.88   141:8  warning  React Hook useEffect has missing dependencies: 'currentDate' and 'days'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
+#12 41.88 
+#12 41.88 ✖ 2 problems (0 errors, 2 warnings)
+#12 41.88 
+#12 43.83 [plugin vite-plugin-eslint] src/components/Exercises/models/translation.ts: 
+#12 43.83 /app/src/components/Exercises/models/translation.ts
+#12 43.83   53:20  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+#12 43.83   60:33  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+#12 43.83   61:35  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+#12 43.83 
+#12 43.83 ✖ 3 problems (0 errors, 3 warnings)
+#12 43.83 
+#12 44.84 [plugin vite-plugin-eslint] src/components/Exercises/Add/Step2Variations.tsx: 
+#12 44.84 /app/src/components/Exercises/Add/Step2Variations.tsx
+#12 44.84    36:24  warning  Unexpected any. Specify a different type                                                                                 @typescript-eslint/no-explicit-any
+#12 44.84    36:42  warning  The `Function` type accepts any function-like value.
+#12 44.84 Prefer explicitly defining any function parameters and return type  @typescript-eslint/no-unsafe-function-type
+#12 44.84    38:25  warning  Unexpected any. Specify a different type                                                                                 @typescript-eslint/no-explicit-any
+#12 44.84   136:12  warning  'state' is assigned a value but never used                                                                               @typescript-eslint/no-unused-vars
+#12 44.84   136:19  warning  'dispatch' is assigned a value but never used                                                                            @typescript-eslint/no-unused-vars
+#12 44.84 
+#12 44.84 ✖ 5 problems (0 errors, 5 warnings)
+#12 44.84 
+#12 44.89 [plugin vite-plugin-eslint] src/components/Exercises/Add/Step5Images.tsx: 
+#12 44.89 /app/src/components/Exercises/Add/Step5Images.tsx
+#12 44.89    43:11  warning  'handleOpenModal' is assigned a value but never used                                                        @typescript-eslint/no-unused-vars
+#12 44.89    81:18  warning  Optional chain expressions can return undefined by design - using a non-null assertion is unsafe and wrong  @typescript-eslint/no-non-null-asserted-optional-chain
+#12 44.89    82:19  warning  Optional chain expressions can return undefined by design - using a non-null assertion is unsafe and wrong  @typescript-eslint/no-non-null-asserted-optional-chain
+#12 44.89   153:34  warning  'formik' is defined but never used                                                                          @typescript-eslint/no-unused-vars
+#12 44.89 
+#12 44.89 ✖ 4 problems (0 errors, 4 warnings)
+#12 44.89 
+#12 45.32 [plugin vite-plugin-eslint] src/components/Exercises/Detail/Head/ExerciseDeleteDialog.tsx: 
+#12 45.32 /app/src/components/Exercises/Detail/Head/ExerciseDeleteDialog.tsx
+#12 45.32   30:14  warning  The `Function` type accepts any function-like value.
+#12 45.32 Prefer explicitly defining any function parameters and return type  @typescript-eslint/no-unsafe-function-type
+#12 45.32   31:23  warning  The `Function` type accepts any function-like value.
+#12 45.32 Prefer explicitly defining any function parameters and return type  @typescript-eslint/no-unsafe-function-type
+#12 45.32   47:41  warning  Optional chain expressions can return undefined by design - using a non-null assertion is unsafe and wrong               @typescript-eslint/no-non-null-asserted-optional-chain
+#12 45.32   54:61  warning  Optional chain expressions can return undefined by design - using a non-null assertion is unsafe and wrong               @typescript-eslint/no-non-null-asserted-optional-chain
+#12 45.32   69:22  warning  'e' is defined but never used                                                                                            @typescript-eslint/no-unused-vars
+#12 45.32 
+#12 45.32 ✖ 5 problems (0 errors, 5 warnings)
+#12 45.32 
+#12 45.39 [plugin vite-plugin-eslint] src/components/Exercises/models/video.ts: 
+#12 45.39 /app/src/components/Exercises/models/video.ts
+#12 45.39   14:20  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+#12 45.39 
+#12 45.39 ✖ 1 problem (0 errors, 1 warning)
+#12 45.39 
+#12 45.48 [plugin vite-plugin-eslint] src/utils/requests.ts: 
+#12 45.48 /app/src/utils/requests.ts
+#12 45.48   4:109  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+#12 45.48 
+#12 45.48 ✖ 1 problem (0 errors, 1 warning)
+#12 45.48 
+#12 45.49 [plugin vite-plugin-eslint] src/components/WorkoutRoutines/models/RepetitionUnit.ts: 
+#12 45.49 /app/src/components/WorkoutRoutines/models/RepetitionUnit.ts
+#12 45.49   15:20  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+#12 45.49   22:12  warning  'item' is defined but never used          @typescript-eslint/no-unused-vars
+#12 45.49 
+#12 45.49 ✖ 2 problems (0 errors, 2 warnings)
+#12 45.49 
+#12 45.49 [plugin vite-plugin-eslint] src/components/WorkoutRoutines/models/WeightUnit.ts: 
+#12 45.49 /app/src/components/WorkoutRoutines/models/WeightUnit.ts
+#12 45.49   15:20  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+#12 45.49   22:12  warning  'item' is defined but never used          @typescript-eslint/no-unused-vars
+#12 45.49 
+#12 45.49 ✖ 2 problems (0 errors, 2 warnings)
+#12 45.49 
+#12 45.53 [plugin vite-plugin-eslint] src/components/WorkoutRoutines/models/WorkoutLog.ts: 
+#12 45.53 /app/src/components/WorkoutRoutines/models/WorkoutLog.ts
+#12 45.53   111:23  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+#12 45.53 
+#12 45.53 ✖ 1 problem (0 errors, 1 warning)
+#12 45.53 
+#12 45.56 [plugin vite-plugin-eslint] src/components/User/models/profile.ts: 
+#12 45.56 /app/src/components/User/models/profile.ts
+#12 45.56   57:23  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+#12 45.56 
+#12 45.56 ✖ 1 problem (0 errors, 1 warning)
+#12 45.56 
+#12 45.67 [plugin vite-plugin-eslint] src/components/WorkoutRoutines/models/RoutineLogData.ts: 
+#12 45.67 /app/src/components/WorkoutRoutines/models/RoutineLogData.ts
+#12 45.67   16:23  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+#12 45.67   18:29  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+#12 45.67 
+#12 45.67 ✖ 2 problems (0 errors, 2 warnings)
+#12 45.67 
+#12 45.69 [plugin vite-plugin-eslint] src/components/WorkoutRoutines/models/RoutineDayData.ts: 
+#12 45.69 /app/src/components/WorkoutRoutines/models/RoutineDayData.ts
+#12 45.69   27:23  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+#12 45.69   32:31  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+#12 45.69 
+#12 45.69 ✖ 2 problems (0 errors, 2 warnings)
+#12 45.69 
+#12 45.71 [plugin vite-plugin-eslint] src/components/WorkoutRoutines/models/LogStats.ts: 
+#12 45.71 /app/src/components/WorkoutRoutines/models/LogStats.ts
+#12 45.71   50:20  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+#12 45.71   52:49  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+#12 45.71 
+#12 45.71 ✖ 2 problems (0 errors, 2 warnings)
+#12 45.71 
+#12 45.74 [plugin vite-plugin-eslint] src/components/Exercises/models/image.ts: 
+#12 45.74 /app/src/components/Exercises/models/image.ts
+#12 45.74   22:20  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+#12 45.74 
+#12 45.74 ✖ 1 problem (0 errors, 1 warning)
+#12 45.74 
+#12 45.78 [plugin vite-plugin-eslint] src/components/Exercises/models/exercise.ts: 
+#12 45.78 /app/src/components/Exercises/models/exercise.ts
+#12 45.78    90:20  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+#12 45.78   102:36  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+#12 45.78   103:34  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+#12 45.78   104:44  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+#12 45.78   105:33  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+#12 45.78   107:39  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+#12 45.78   108:33  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+#12 45.78 
+#12 45.78 ✖ 7 problems (0 errors, 7 warnings)
+#12 45.78 
+#12 45.79 [plugin vite-plugin-eslint] src/components/Exercises/models/muscle.ts: 
+#12 45.79 /app/src/components/Exercises/models/muscle.ts
+#12 45.79   30:20  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+#12 45.79   39:12  warning  'item' is defined but never used          @typescript-eslint/no-unused-vars
+#12 45.79 
+#12 45.79 ✖ 2 problems (0 errors, 2 warnings)
+#12 45.79 
+#12 45.80 [plugin vite-plugin-eslint] src/components/Exercises/models/equipment.ts: 
+#12 45.80 /app/src/components/Exercises/models/equipment.ts
+#12 45.80   19:20  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+#12 45.80 
+#12 45.80 ✖ 1 problem (0 errors, 1 warning)
+#12 45.80 
+#12 45.81 [plugin vite-plugin-eslint] src/components/Measurements/models/Category.ts: 
+#12 45.81 /app/src/components/Measurements/models/Category.ts
+#12 45.81   22:20  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+#12 45.81 
+#12 45.81 ✖ 1 problem (0 errors, 1 warning)
+#12 45.81 
+#12 45.82 [plugin vite-plugin-eslint] src/components/Measurements/models/Entry.ts: 
+#12 45.82 /app/src/components/Measurements/models/Entry.ts
+#12 45.82   17:20  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+#12 45.82 
+#12 45.82 ✖ 1 problem (0 errors, 1 warning)
+#12 45.82 
+#12 45.83 [plugin vite-plugin-eslint] src/components/Exercises/models/category.ts: 
+#12 45.83 /app/src/components/Exercises/models/category.ts
+#12 45.83   21:20  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+#12 45.83 
+#12 45.83 ✖ 1 problem (0 errors, 1 warning)
+#12 45.83 
+#12 46.24 [plugin vite-plugin-eslint] src/components/Exercises/models/note.ts: 
+#12 46.24 /app/src/components/Exercises/models/note.ts
+#12 46.24   13:20  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+#12 46.24 
+#12 46.24 ✖ 1 problem (0 errors, 1 warning)
+#12 46.24 
+#12 46.51 [plugin vite-plugin-eslint] src/components/Exercises/forms/ImageStyle.tsx: 
+#12 46.51 /app/src/components/Exercises/forms/ImageStyle.tsx
+#12 46.51   19:12  warning  'field' is assigned a value but never used  @typescript-eslint/no-unused-vars
+#12 46.51   19:19  warning  'meta' is assigned a value but never used   @typescript-eslint/no-unused-vars
+#12 46.51 
+#12 46.51 ✖ 2 problems (0 errors, 2 warnings)
+#12 46.51 
+#12 46.56 [plugin vite-plugin-eslint] src/components/Exercises/forms/ExerciseSelect.tsx: 
+#12 46.56 /app/src/components/Exercises/forms/ExerciseSelect.tsx
+#12 46.56   6:69  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+#12 46.56 
+#12 46.56 ✖ 1 problem (0 errors, 1 warning)
+#12 46.56 
+#12 46.57 [plugin vite-plugin-eslint] src/components/Exercises/forms/ExerciseEquipmentSelect.tsx: 
+#12 46.57 /app/src/components/Exercises/forms/ExerciseEquipmentSelect.tsx
+#12 46.57   6:78  warning  Unexpected any. Specify a different type   @typescript-eslint/no-explicit-any
+#12 46.57   8:19  warning  'meta' is assigned a value but never used  @typescript-eslint/no-unused-vars
+#12 46.57 
+#12 46.57 ✖ 2 problems (0 errors, 2 warnings)
+#12 46.57 
+#12 46.83 [plugin vite-plugin-eslint] src/components/WorkoutRoutines/models/SetConfigData.ts: 
+#12 46.83 /app/src/components/WorkoutRoutines/models/SetConfigData.ts
+#12 46.83   98:23  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+#12 46.83 
+#12 46.83 ✖ 1 problem (0 errors, 1 warning)
+#12 46.83 
+#12 55.99 ✓ 13711 modules transformed.
+#12 57.47 rendering chunks...
+#12 65.28 computing gzip size...
+#12 65.68 build/index.html                               2.21 kB │ gzip:   1.02 kB
+#12 65.68 build/assets/index-D9TyaizO.css                2.32 kB │ gzip:   0.68 kB
+#12 65.68 
+#12 65.68 (!) Some chunks are larger than 500 kB after minification. Consider:
+#12 65.68 - Using dynamic import() to code-split the application
+#12 65.68 - Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+#12 65.68 - Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+#12 65.68 build/chunks/browser-ponyfill-DX_7BlZA.js     10.34 kB │ gzip:   3.55 kB │ map:     31.90 kB
+#12 65.68 build/main.js                              2,363.75 kB │ gzip: 709.95 kB │ map: 12,033.26 kB
+#12 65.68 ✓ built in 1m 2s
+#12 DONE 66.8s
+
+#13 [build 7/7] RUN ls -la /app && ls -la /app/dist || true
+#13 0.483 total 580
+#13 0.484 drwxr-xr-x    1 root     root          4096 Oct  9 05:43 .
+#13 0.484 drwxr-xr-x    1 root     root          4096 Oct  9 05:43 ..
+#13 0.484 -rw-r--r--    1 root     root         34983 Oct  8 19:35 .editorconfig
+#13 0.484 -rw-r--r--    1 root     root           342 Oct  8 19:35 .env.TEMPLATE
+#13 0.484 -rw-r--r--    1 root     root           182 Oct  8 19:35 .env.production
+#13 0.484 drwxr-xr-x    8 root     root          4096 Oct  9 05:31 .git
+#13 0.484 drwxr-xr-x    3 root     root          4096 Oct  8 19:35 .github
+#13 0.484 -rw-r--r--    1 root     root           441 Oct  8 19:35 .gitignore
+#13 0.484 drwxr-xr-x    1 root     root          4096 Oct  9 05:34 .yarn
+#13 0.484 -rw-r--r--    1 root     root            25 Oct  8 19:35 .yarnrc.yml
+#13 0.484 -rw-r--r--    1 root     root         10984 Oct  8 19:35 AUTHORS.md
+#13 0.484 -rw-r--r--    1 root     root           600 Oct  9 05:30 Dockerfile
+#13 0.484 -rw-r--r--    1 root     root         34523 Oct  8 19:35 LICENSE
+#13 0.484 -rw-r--r--    1 root     root          1988 Oct  8 19:35 README.md
+#13 0.484 drwxr-xr-x    2 root     root          4096 Oct  8 19:35 __mocks__
+#13 0.484 drwxr-xr-x    6 root     root          4096 Oct  9 05:43 build
+#13 0.485 -rw-r--r--    1 root     root          1658 Oct  8 19:35 eslint.config.js
+#13 0.485 -rw-r--r--    1 root     root           318 Oct  8 19:35 i18next-parser.config.js
+#13 0.485 -rw-r--r--    1 root     root          2132 Oct  8 19:35 index.html
+#13 0.485 drwxr-xr-x    1 root     root          4096 Oct  9 05:42 node_modules
+#13 0.485 -rw-r--r--    1 root     root          3277 Oct  8 19:35 package.json
+#13 0.485 -rwxr-xr-x    1 root     root           642 Oct  8 19:35 postbuild.sh
+#13 0.485 -rw-r--r--    1 root     root          7855 Oct  1 21:20 prod.env
+#13 0.485 drwxr-xr-x    4 root     root          4096 Oct  8 19:35 public
+#13 0.485 drwxr-xr-x   13 root     root          4096 Oct  8 19:35 src
+#13 0.485 -rw-r--r--    1 root     root           676 Oct  8 19:35 tsconfig.json
+#13 0.485 -rw-r--r--    1 root     root           233 Oct  8 19:35 tsconfig.node.json
+#13 0.485 -rw-r--r--    1 root     root          1253 Oct  8 19:35 vite.config.ts
+#13 0.485 -rw-r--r--    1 root     root        390828 Oct  8 19:35 yarn.lock
+#13 0.487 ls: /app/dist: No such file or directory
+#13 DONE 0.5s
+
+#14 [stage-1 2/2] COPY --from=build /app/dist /usr/share/nginx/html
+#14 ERROR: failed to calculate checksum of ref 3ff79b35-344d-4333-9698-71a385fbf365::p7uihr8m9irsw8uclvl9zi398: "/app/dist": not found
+------
+ > [stage-1 2/2] COPY --from=build /app/dist /usr/share/nginx/html:
+------
+Dockerfile:22
+--------------------
+  20 |     # Production stage
+  21 |     FROM nginx:alpine
+  22 | >>> COPY --from=build /app/dist /usr/share/nginx/html
+  23 |     EXPOSE 80
+  24 |     
+--------------------
+ERROR: failed to build: failed to solve: failed to compute cache key: failed to calculate checksum of ref 3ff79b35-344d-4333-9698-71a385fbf365::p7uihr8m9irsw8uclvl9zi398: "/app/dist": not found
+Service 'front' failed to build : Build failed

@@ -16,7 +16,7 @@ services:
       context: ../kenshoform-back
       dockerfile: extras/docker/production/Dockerfile
     env_file:
-      - ../kenshoform-back/config/prod.env
+      - ../kenshoform-back/prod.env
     depends_on:
       db:
         condition: service_healthy
@@ -30,6 +30,12 @@ services:
     networks:
       - kensho_network
     restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health/"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 20s
 
   nginx:
     image: nginx:stable
@@ -60,6 +66,12 @@ services:
     networks:
       - kensho_network
     restart: unless-stopped
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U wger"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 20s
 
   cache:
     image: redis
@@ -72,6 +84,11 @@ services:
     networks:
       - kensho_network
     restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
 
   celery_worker:
     build:
@@ -79,7 +96,7 @@ services:
       dockerfile: extras/docker/production/Dockerfile
     command: /start-worker
     env_file:
-      - ../kenshoform-back/config/prod.env
+      - ../kenshoform-back/prod.env
     volumes:
       - media:/home/wger/media
     depends_on:
@@ -96,7 +113,7 @@ services:
     volumes:
       - celery-beat:/home/wger/beat/
     env_file:
-      - ../kenshoform-back/config/prod.env
+      - ../kenshoform-back/prod.env
     depends_on:
       celery_worker:
         condition: service_healthy
